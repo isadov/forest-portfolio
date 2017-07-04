@@ -1,0 +1,126 @@
+include ../partials/_variables
+include ../partials/_sprites
+include ../mixins/_mixins
+
++main-menu(1)
+
+a(href="#" id="menu-toggle").toggle-mnu
+	span
+
+header.header.table-box.js-header.header-s-works
+
+	.parallax-wrapper.js-header__bg
+
+	.table-box__row
+		.header__top-row
+			ul.header-line-social-list
+				each link, item in social_list
+					li: a(target="_blank" href=link)
+						i(class= item)
+
+	.table-box__row.table-box__row__fullheight
+		.table-box__vertical-aligned
+
+			.main-content-author-block.js-header__author
+				.main-content-author-block__img
+					img(src="/assets/img/developer.png", alt="Developer")
+				.main-content-author-block__name
+					p Садовский Иван
+				.main-content-author-block__descr
+					p Личный сайт веб разработчика
+	
+			svg.header__svg-bg.js-header__text
+				use(xlink:href="#icon-works_header")
+			.main-content-arrow-block
+				i.fa.fa-chevron-down
+
+			svg.header__svg-corner.header__svg-corner_left(preserveAspectRatio="none" viewBox="0 0 1000 400")
+				use(xlink:href="#icon-about_bg_left")
+			svg.header__svg-corner.header__svg-corner_right(preserveAspectRatio="none" viewBox="0 0 1000 400")
+				use(xlink:href="#icon-about_bg_right")
+			
+section.s-works
+
+	.main-content__work-block
+		h2.h2 Мои работы
+		svg.header__svg-bg.header__svg-bg-work
+			use(xlink:href="#icon-works_header")
+
+	.slider
+		.slider__left
+			.slider__display
+				img.portfolio-preview.active(src="/assets/img/slider/work-1.png", alt="Портфолио-1")
+				img.portfolio-preview(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
+				img.portfolio-preview(src="/assets/img/slider/work-3.png", alt="Портфолио-3")
+				img.portfolio-preview(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
+			.slider__info
+				.portfolio-projects
+					.project.active
+						.project__inner
+							.title
+								p.title__name Сайт школы онлайн образования
+							.skills
+								p.title__description html, css, javascript
+							.slider__btn
+								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
+					.project
+						.project__inner
+							.title
+								p.title__name Сайт школы онлайн образования (1)
+							.skills
+								p.title__description html, css, javascript
+							.slider__btn
+								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
+					.project
+						.project__inner
+							.title
+								p.title__name Сайт школы онлайн образования (2)
+							.skills
+								p.title__description html, css, javascript
+							.slider__btn
+								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
+					.project
+						.project__inner
+							.title
+								p.title__name Сайт школы онлайн образования (3)
+							.skills
+								p.title__description html, css, javascript
+							.slider__btn
+								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
+		.slider__right
+			.slider__controls
+
+				.navigation-box.navigation-box__prev
+					button(class="slider__controls-item slider__controls-item_prev")
+					.portfolio-thumbnails
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-3.png", alt="Портфолио-3")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-3.png", alt="Портфолио-3")
+						.slider__thumbnail.active
+							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
+				
+				.navigation-box.navigation-box__next
+					button(class="slider__controls-item slider__controls-item_next")
+					.portfolio-thumbnails
+						.slider__thumbnail.active
+							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-1.png", alt="Портфолио-1")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
+						.slider__thumbnail
+							img(src="/assets/img/slider/work-1.png", alt="Портфолио-1")
+
+
+

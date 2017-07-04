@@ -1,0 +1,23 @@
+//- Fullscreen Menu widget
+mixin main-menu(active)
+	- var pages = {"Мои работы":"./works.html", "Блог":"./blog.html", "Обо мне":"./about.html", "Авторизация":"/"}
+	nav.main-menu
+		ul.main-menu__content
+			- var i = 1
+			each p_url, p_title in pages
+				li.main-menu__item
+					a(class="preload-link main-menu__link" + ((i++ == active) ? " active":""), href=p_url)=p_title
+
+//- Parallax
+mixin parallax(type)
+	- var p_type = type || "axis"
+	.parallax-wrapper
+		ul#scene(class=p_type)
+			- for (var n = 0; n < 5; n++)
+				li.layer(data-depth=(0.1*n))
+					div(class = "layer-bg layer-bg_" + n)
+
+//- Water BG
+mixin waterBackground
+	.Background
+		canvas.Background-canvas

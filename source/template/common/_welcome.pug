@@ -1,0 +1,75 @@
+include ../partials/_variables
+include ../partials/_sprites
+include ../mixins/_mixins
+
+//- .parallax-wrapper
++waterBackground
+
+header.main-head.table-box__row
+	button.button.button-auth(id="auth") Авторизоваться
+	
+main.main-sect.table-box__row.table-box__row_fullheight
+	.table-box__vertical-aligned
+		.flip-card
+			
+			//- Блок Главная
+			.front
+				.container-info
+					.container-info-img
+						img(src="/assets/img/developer.png", alt="Фото разработчика")
+					.container-info-author 
+						| Садовский Иван
+					.container-info-author-desc 
+						| Личный сайт веб разработчика
+					.container-info-social
+						ul.container-info-social-list
+							each link, item in social_list
+								li: a(target="_blank" href=link)
+									i(class= item)
+				ul.container-info-button-list
+					each link, title in page_list
+						li: a(href= link)= title
+			
+			//- Блок Авторизации
+			.back
+				.container-info
+					.container-info-form-header
+						span.container-info-form-header_text Авторизуйтесь
+					.container-info-form-inputs
+
+						form.auth-form
+
+							ul.auth-form-container
+								li.auth-form-group
+									<input type="text" name="Login" placeholder="Логин" required>
+									i.fa.fa-user
+
+								li.auth-form-group
+									<input type="password" name="Password" placeholder="Пароль" required>
+									i.fa.fa-key
+								
+								li.auth-form-group.auth-form-radio-check
+									<input id="chbox" type="checkbox" name="Checkbox" required>
+									label(class="chbox" for="chbox") Я человек
+								
+								li.auth-form-group
+									span Вы точно не робот?
+
+								li.auth-form-group
+									.auth-form-group-content
+										<input id="radioyes" type="radio" name="Radiobutton" required>
+										label(for="radioyes") Да
+									
+									.auth-form-group-content
+										<input id="radiono" type="radio" name="Radiobutton" required>
+										label(for="radiono") Не уверен
+								
+							ul.container-info-button-list
+								li.container-info-button-list__button-container
+									button.container-button(id="back-main") На главную
+								li.container-info-button-list__button-container
+									button.container-button(id="enter-adm") Войти
+
+footer.main-foot.table-box__row
+	.container.container_padded
+		| © Садовский Иван | создано с любовью | 2017

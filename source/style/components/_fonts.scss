@@ -1,0 +1,11 @@
+@import "../mixins/font-face.scss";
+
+@include font-face("roboto", "../fonts/roboto/Roboto-Regular/Roboto-Regular");
+@include font-face("roboto", "../fonts/roboto/Roboto-Bold/Roboto-Bold", bold);
+@include font-face("roboto", "../fonts/roboto/Roboto-Italic/Roboto-Italic", 300, italic);
+@include font-face("roboto", "../fonts/roboto/Roboto-Light/Roboto-Light", 300);
+@include font-face("roboto", "../fonts/roboto/Roboto-LightItalic/Roboto-LightItalic", 300, italic);
+@include font-face("roboto", "../fonts/roboto/Roboto-Medium/Roboto-Medium", 500);
+@include font-face("roboto", "../fonts/roboto/Roboto-MediumItalic/Roboto-MediumItalic", 500, italic);
+@include font-face("sansus", "../fonts/sansus/SansusWebissimo");
+@include font-face("fontawesome", "../fonts/fontawesome/fontawesome-webfont");

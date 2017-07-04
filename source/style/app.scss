@@ -1,0 +1,35 @@
+@import 'components/_vars.scss';
+@import 'mixins/_functions.scss';
+@import 'mixins/_mixins.scss';
+@import 'components/fonts.scss';
+
+html,
+body {
+	height: 100%;
+  font-size: $base-font-size;
+	min-width: 320px;
+	font-style: normal;
+	position: relative;
+	line-height: 1.75;
+	font-family: roboto, sans-serif;
+	transition: all .3s ease;
+	opacity: 1;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+.sprites-container {
+	display: none;
+}
+
+@import 'components/_preloader.scss';
+@import 'components/_slider.scss';
+@import 'components/_water.scss';
+
+@import 'common/about.scss';
+@import 'common/welcome.scss';
+@import 'common/works.scss';
+
+@import 'components/_media.scss';

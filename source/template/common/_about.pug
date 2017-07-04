@@ -1,0 +1,132 @@
+include ../partials/_variables
+include ../partials/_sprites
+include ../mixins/_mixins
+
++main-menu(3)
+
+a(href="#" id="menu-toggle").toggle-mnu
+	span
+
+header.header.table-box.js-header
+	.parallax-wrapper.js-header__bg
+	.table-box__row
+		.header__top-row
+			ul.header-line-social-list
+				each link, item in social_list
+					li: a(target="_blank" href=link)
+						i(class= item)
+
+	.table-box__row.table-box__row__fullheight
+		.table-box__vertical-aligned
+			.main-content-author-block.js-header__author
+				.main-content-author-block__img
+					img(src="/assets/img/developer.png", alt="Developer")
+				.main-content-author-block__name
+					p Садовский Иван
+				.main-content-author-block__descr
+					p Личный сайт веб разработчика
+			svg.header__svg-bg.js-header__text
+				use(xlink:href="#icon-portfolio_header")
+			.main-content-arrow-block
+				i.fa.fa-chevron-down
+			svg.header__svg-corner.header__svg-corner_left(preserveAspectRatio="none" viewBox="0 0 1000 400")
+				use(xlink:href="#icon-about_bg_left")
+			svg.header__svg-corner.header__svg-corner_right(preserveAspectRatio="none" viewBox="0 0 1000 400")
+				use(xlink:href="#icon-about_bg_right")
+
+section.s-about-author
+	.s-about-author-stretcher.clearfix
+		.s-about-author-content.s-about-author-content-left
+			.s-about-author-content-s__header
+				span Обо мне
+				svg.s-about-author-content-s__header-bg
+					use(xlink:href="#icon-about_header")
+			.s-about-author-content-s__img
+				img(src="/assets/img/author_img.png", alt="Author")
+				.s-about-author-content-s__img-descr
+					span Кто я
+					p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. 
+					p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
+		.s-about-author-content.s-about-author-content-right
+			.s-about-author-content-s__header
+				span Чем я могу быть вам полезен
+			p.s-about-author-content-s__descr Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+			.s-about-author-content-s__skills
+				.s-about-author-content-s__skills__frontend
+					span Frontend
+					each percent, name in author_frontend_skills
+						.s-about-author-content-s__skills__container
+							.pie
+								= percent
+							.pie-header
+								p= name
+					span Backend
+					each percent, name in author_backend_skills
+						.s-about-author-content-s__skills__container
+							.pie
+								= percent
+							.pie-header
+								p= name
+					span Workflow
+					each percent, name in author_workflow_skills
+						.s-about-author-content-s__skills__container
+							.pie
+								= percent
+							.pie-header
+								p= name
+					span Design Tools
+					each percent, name in author_design_skills
+						.s-about-author-content-s__skills__container
+							.pie
+								= percent
+							.pie-header
+								p= name
+
+section.s-contacts.last-section
+	.s-contacts__map
+		#map_wrapper
+	.s-contacts__info
+		.s-contacts__info-header
+			h3.h3 Контакты
+		.s-contacts__info-links
+			ul.s-contacts__info-links__container
+				li.s-contacts__info-links__container-item
+					a(href="#") <i class="fa fa-skype"></i> ivan.sadovsky92
+				li.s-contacts__info-links__container-item
+					a(href="#") <i class="fa fa-envelope"></i> ivan.sadovsky1992@gmail.com
+				li.s-contacts__info-links__container-item
+					a(href="#") <i class="fa fa-mobile"></i> +38 (093) 783 33 00
+				li.s-contacts__info-links__container-item
+					a(href="#") <i class="fa fa-map-marker"></i> Ukraine, Kiev
+
+
+footer.footer
+	.footer__wrapper
+		.footer__wrapper-row
+			.footer__column
+				.footer__description
+					| Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
+			.footer__column.footer__column__center
+				.footer__links
+					ul.footer__links-text
+						li
+							a(href="#") Мои Работы
+						li
+							a(href="#") Обо мне
+						li
+							a(href="#") Блог
+						li
+							a(href="#") Авторизация
+					ul.footer__links-socials
+						each link, item in social_list
+							li: a(target="_blank" href=link)
+								i(class= item)
+			.footer__column
+				.footer__description
+					| <i>Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.<br>
+					| <b>— Martin Golding</b> </i> 
+
+		.footer__bottom-line
+			| © Садовский Иван | создано с любовью | 2017
+
