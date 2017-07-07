@@ -1,13 +1,6 @@
 'use strict';
 
-var slideIt = function (block, parallaxAmount) {
-	var
-	parallax = -parallaxAmount + '%',
-	transformString = 'translate3d(0,' + parallax + ',0)';
-
-	block.css({"will-change":"transform"});
-	block.css('transform', transformString);
-}
+var slideIt = require('../p_modules/slide-it');
 
 var slideItText= function (block, parallaxAmount) {
 	var
@@ -17,7 +10,6 @@ var slideItText= function (block, parallaxAmount) {
 	block.css({"will-change":"transform"});
 	block.css('transform', transformString);
 }
-
 
 var verticalParallax = function() {
 	var
@@ -42,5 +34,3 @@ var verticalParallax = function() {
 	module.exports = {
 		createParallax : verticalParallax
 	}
-
-

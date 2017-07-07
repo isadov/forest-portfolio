@@ -4,7 +4,23 @@
   var map               = require("./p_modules/gmap"),
       slider            = require("./p_modules/slider"),
       verticalParallax  = require("./p_modules/header-parallax"),
+      worksParallax     = require("./p_modules/works-parallax"),
+      blur              = require("./p_modules/blur"),
+      blog              = require("./p_modules/blog"),
       preloader         = require("./p_modules/preloader");
+
+
+
+
+
+
+  // ==============================
+  // Preloader Initiation
+  // ==============================
+  preloader();
+
+
+
 
 
 
@@ -19,6 +35,8 @@
 
     slider.createSlider(".slider", 700);
   }
+
+
 
 
 
@@ -87,6 +105,9 @@
   // Parallax effect
   // ==============================
   verticalParallax.createParallax();
+
+
+
   
 
 
@@ -100,12 +121,18 @@
 
 
 
+  // ==============================
+  // Parallax effect on Works Page
+  // ==============================
+  worksParallax();
+  blur();
+
+
 
   // ==============================
-  // Preloader Initiation
+  // Side menu on Blog page
   // ==============================
-  preloader();
-
+  blog();
 
 
 

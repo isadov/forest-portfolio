@@ -35,6 +35,6 @@ module.exports = function() {
         }))
         .pipe($.gp.replace('&gt;', '>'))
         .pipe($.gp.svgSprite(svg_config))
-        .pipe($.gulp.dest('./source/template/svg/'));
+        .pipe($.gulp.dest('./source/images/svg/'));
   });
 };

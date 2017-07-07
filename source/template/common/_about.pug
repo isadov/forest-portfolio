@@ -4,19 +4,21 @@ include ../mixins/_mixins
 
 +main-menu(3)
 
+//- .parallax-wrapper
++waterBackground
+
 a(href="#" id="menu-toggle").toggle-mnu
 	span
 
 header.header.table-box.js-header
-	.parallax-wrapper.js-header__bg
-	.table-box__row
-		.header__top-row
-			ul.header-line-social-list
-				each link, item in social_list
-					li: a(target="_blank" href=link)
-						i(class= item)
 
-	.table-box__row.table-box__row__fullheight
+	.header__top-row
+		ul.header-line-social-list
+			each link, item in social_list
+				li: a(target="_blank" href=link)
+					i(class= item)
+
+	.table-box__row
 		.table-box__vertical-aligned
 			.main-content-author-block.js-header__author
 				.main-content-author-block__img
@@ -26,7 +28,7 @@ header.header.table-box.js-header
 				.main-content-author-block__descr
 					p Личный сайт веб разработчика
 			svg.header__svg-bg.js-header__text
-				use(xlink:href="#icon-portfolio_header")
+				use(xlink:href="#icon-about_header")
 			.main-content-arrow-block
 				i.fa.fa-chevron-down
 			svg.header__svg-corner.header__svg-corner_left(preserveAspectRatio="none" viewBox="0 0 1000 400")
@@ -61,6 +63,7 @@ section.s-about-author
 								= percent
 							.pie-header
 								p= name
+				.s-about-author-content-s__skills__backend
 					span Backend
 					each percent, name in author_backend_skills
 						.s-about-author-content-s__skills__container
@@ -68,6 +71,7 @@ section.s-about-author
 								= percent
 							.pie-header
 								p= name
+				.s-about-author-content-s__skills__workflow
 					span Workflow
 					each percent, name in author_workflow_skills
 						.s-about-author-content-s__skills__container
@@ -75,6 +79,7 @@ section.s-about-author
 								= percent
 							.pie-header
 								p= name
+				.s-about-author-content-s__skills__design-tools
 					span Design Tools
 					each percent, name in author_design_skills
 						.s-about-author-content-s__skills__container
@@ -99,34 +104,3 @@ section.s-contacts.last-section
 					a(href="#") <i class="fa fa-mobile"></i> +38 (093) 783 33 00
 				li.s-contacts__info-links__container-item
 					a(href="#") <i class="fa fa-map-marker"></i> Ukraine, Kiev
-
-
-footer.footer
-	.footer__wrapper
-		.footer__wrapper-row
-			.footer__column
-				.footer__description
-					| Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. 
-			.footer__column.footer__column__center
-				.footer__links
-					ul.footer__links-text
-						li
-							a(href="#") Мои Работы
-						li
-							a(href="#") Обо мне
-						li
-							a(href="#") Блог
-						li
-							a(href="#") Авторизация
-					ul.footer__links-socials
-						each link, item in social_list
-							li: a(target="_blank" href=link)
-								i(class= item)
-			.footer__column
-				.footer__description
-					| <i>Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.<br>
-					| <b>— Martin Golding</b> </i> 
-
-		.footer__bottom-line
-			| © Садовский Иван | создано с любовью | 2017
-

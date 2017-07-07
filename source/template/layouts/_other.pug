@@ -20,6 +20,14 @@ html
     include ../partials/_mapsApi
     script(src='/assets/js/foundation.js' defer)
     script(src='/assets/js/app.js' defer)
+    script(type="text/javascript" defer).
+      var isMobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+      if (!isMobile) {
+        var desktopJs = document.createElement('script');
+        desktopJs.src = '/assets/js/desktop.js';
+        desktopJs.async = true;
+        document.head.appendChild(desktopJs);
+      }
 
     <!--[if lt IE 9]>
     script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
@@ -27,4 +35,7 @@ html
 
   body
     include ../partials/_preloader
+    
     block content
+
+    block footer

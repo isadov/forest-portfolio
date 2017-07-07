@@ -11,7 +11,7 @@ module.exports = function() {
   		.pipe($.vinyl(bundle))
   		.pipe($.buffer())
   		.pipe($.gp.sourcemaps.init())
-  		.pipe($.gp.uglify())
+  		// .pipe($.gp.uglify())
   		.pipe($.gp.sourcemaps.write())
   		.pipe($.gulp.dest($.config.root + '/assets/js'))
   	});

@@ -1,0 +1,23 @@
+footer.footer
+	.footer__wrapper
+		.footer__wrapper-row
+			.footer__column
+				.footer__description
+					| <i>Измерять продуктивность программирования подсчетом строк кода — это так же, как оценивать постройку самолета по его весу.<br>
+					| <b>- Bill Gates</b> </i>
+			.footer__column.footer__column__center
+				.footer__links
+					ul.footer__links-text
+						each link, title in page_list_footer
+							li: a(href= link)= title
+					ul.footer__links-socials
+						each link, item in social_list
+							li: a(target="_blank" href=link)
+								i(class= item)
+			.footer__column
+				.footer__description
+					| <i>Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.<br>
+					| <b>— Martin Golding</b> </i> 
+
+		.footer__bottom-line
+			| © isadov | создано с любовью | 2017

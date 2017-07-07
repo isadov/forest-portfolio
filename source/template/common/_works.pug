@@ -4,21 +4,21 @@ include ../mixins/_mixins
 
 +main-menu(1)
 
+//- .parallax-wrapper
++waterBackground
+
 a(href="#" id="menu-toggle").toggle-mnu
 	span
 
 header.header.table-box.js-header.header-s-works
 
-	.parallax-wrapper.js-header__bg
+	.header__top-row
+		ul.header-line-social-list
+			each link, item in social_list
+				li: a(target="_blank" href=link)
+					i(class= item)
 
 	.table-box__row
-		.header__top-row
-			ul.header-line-social-list
-				each link, item in social_list
-					li: a(target="_blank" href=link)
-						i(class= item)
-
-	.table-box__row.table-box__row__fullheight
 		.table-box__vertical-aligned
 
 			.main-content-author-block.js-header__author
@@ -122,5 +122,61 @@ section.s-works
 						.slider__thumbnail
 							img(src="/assets/img/slider/work-1.png", alt="Портфолио-1")
 
+section.s-about.js-parallax.js-blur-bg#js-cover-target
 
+	.works__container
+		.works__leaf.works__leaf_1.js-leaf_1
+		.works__leaf.works__leaf_2.js-leaf_2
+		.works__leaf.works__leaf_3.js-leaf_3
+		
+		.main-content__work-block.about-title
+			h2.h2 Что обо мне <br> говорят
+			svg.header__svg-bg.header__svg-bg-work
+				use(xlink:href="#icon-about_header")
 
+		.works__reviews
+			.reviews
+				.reviews__list
+
+					.reviews__item
+						.review
+							.review__img-wrapper
+								img(src="/assets/img/dima.jpg", alt="Дмитрий").review__img
+							.review__text
+								| Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+								svg.review__text-quote
+									use(xlink:href="#icon-quote")
+							.review__author
+								span.review__author-name
+									| Ковальчук Дмитрий
+								span.review__author-place
+									| - основатель Loftschool
+
+					.reviews__item
+						.review
+							.review__img-wrapper
+								img(src="/assets/img/zar.jpg", alt="Зар").review__img
+							.review__text
+								| Этот код выдержит любые испытания. Только пожалуйста не загружайте сайт на слишком старых браузерах
+								svg.review__text-quote
+									use(xlink:href="#icon-quote")
+							.review__author
+								span.review__author-name
+									| Зар Захаров
+								span.review__author-place
+									| - главный преподаватель
+
+		.works__feedback
+			svg(version='1.1', xmlns='http://www.w3.org/2000/svg', style='display: none')
+				filter#blur
+					fegaussianblur(stddeviation='6')
+			.works__feedback-blur.js-blur
+			.feedback
+				span.title_feedback.feedback_header
+					| Связаться со мной
+				form.feedback__form
+					input(type='text' name='name' placeholder='Имя' required='').feedback__input-text
+					input(type='email' name='email' placeholder='Email' required='').feedback__input-text
+					textarea(type='text' name='message' placeholder='Ваше сообщение' required='').feedback__textarea
+					input(type='submit' value='Отправить' placeholder='Email').feedback__button.feedback__button_submit
+					input(type='reset' value='Очистить' placeholder='Email').feedback__button.feedback__button_reset

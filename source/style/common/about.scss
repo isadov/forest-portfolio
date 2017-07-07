@@ -21,7 +21,7 @@
 }
 
 .toggle-mnu {
-	z-index: 2;
+	z-index: 20;
   display: block;
   width: 38px;
   height: 38px;
@@ -68,6 +68,11 @@
   	position: fixed;
   	z-index: 10;
   }
+  &:hover {
+  	span, span:after, span:before {
+  		opacity: .7;
+  	}
+  }
 }
 
 .header {
@@ -88,22 +93,35 @@
 		&__name {
 			z-index: 2;
 			position: relative;
+			margin-top: 20px;
 			p {
 				font-size: rem(35px);
 				font-weight: 500;
 				margin: 0;
 				padding: 0;
 				color: #fff;
+				font-family: sansus;
 			}
 		}
 		&__descr {
 			z-index: 2;
 			position: relative;
+			margin-top: 20px;
 			p {
 				margin: 0;
 				padding: 0;
 				color: #fff;
 				font-weight: 300;
+			}
+			&::after {
+				content: '';
+				width: 60px;
+				height: 2px;
+				background: #fff;
+				top: -25px;
+				left: 50%;
+				position: absolute;
+				transform: translate(-50%, -50%);
 			}
 		}
 	}
@@ -259,7 +277,8 @@
 			.s-about-author-content-s__skills {
 				&__frontend,
 				&__backend,
-				&__workflow {
+				&__workflow ,
+				&__design-tools{
 					text-align: left;
 					padding-left: 40px;
 					span {
@@ -268,7 +287,8 @@
 						color: #566358;
 					}
 				}
-				&__backend {
+				&__backend,
+				&__design-tools {
 					.pie {
 						.circle {
 							stroke: #b1c2a4;

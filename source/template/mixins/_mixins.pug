@@ -21,3 +21,40 @@ mixin parallax(type)
 mixin waterBackground
 	.Background
 		canvas.Background-canvas
+
+
+//- For Blogs
+mixin blogPost(articles)
+	each article in articles
+		li.articles__item
+			.article__heading=article.heading
+			time.article__date=article.date
+			article.article
+				each par in article.paragraphes
+					p.article__text=par
+
+mixin list(className, items)
+	ul(class=`${className}__list`)
+		each item in items
+			li(class=`${className}__item`)=item
+
+mixin list-img(className, items)
+	ul(class=`${className}__list`)
+		each item, index in items
+			li(class=`${className}__item` + ((index === 0) ? ` ${className}__itemActive` : ''))
+				img(src="/assets/img/"+item+".png" alt=)
+
+mixin list-link(className, items)
+	ul(class=`${className}__list`)
+		each item in items
+			li(class=`${className}__item`)
+				a(class=`${className}__link` href=item.link)=item.name
+
+mixin list-div(className, items)
+	ul(class=`${className}__list`)
+		each item, index in items
+			li(class=`${className}__item`+ ((index === 0) ? ` ${className}__itemActive` : ''))
+				div(class=`${className}__txt`)=item
+
+
+				
