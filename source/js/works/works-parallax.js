@@ -1,6 +1,6 @@
 'use strict';
 
-var slideIt = require('../p_modules/slide-it');
+var slideIt = require('../common/slide-it');
 
 module.exports = function () {
   var

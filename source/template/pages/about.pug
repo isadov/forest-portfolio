@@ -1,10 +1,11 @@
 extends ../layouts/_other
 
 block variables
-  - var title = 'About page'
+	- var title = 'About page'
 
 block content
-  include ../common/_about
+	#page-about
+	include ../common/_about
 
 block footer
-  include ../partials/footer
+	include ../partials/footer

@@ -1,3 +1,7 @@
+
+// ==============================
+// Slider
+// ==============================
 var letter_class_default    = "letter",
     word_class_default      = "word",
     animation_time_default  = 700;
@@ -20,8 +24,8 @@ var prepareTitles = function (title_container, animation_time, letter_class, wor
   // Create new wrapped text
   for(var i = 0; i < letters_amount; i++){
     var letter_delay = (delay_base)*(i+1),
-      css_delay = "style='animation-delay: " + letter_delay + "s'",
-      text = "<span class='" + letter_class + "' " + css_delay + ">" + letters[i] + "</span>";
+        css_delay = "style='animation-delay: " + letter_delay + "s'",
+        text = "<span class='" + letter_class + "' " + css_delay + ">" + letters[i] + "</span>";
 
     if(i==0){
       text = "<span class='"+word_class+"'>" + text;
@@ -45,15 +49,15 @@ var prepareTitles = function (title_container, animation_time, letter_class, wor
 var createSlider = function(slider_container, animation_time, animation_class, letter_class, word_class){
   // Set static parameters
   var slider_container = slider_container || ".slider",
-    slider = $(slider_container),
-    previews = slider.find(".portfolio-preview"),
-    projects_wrapper = slider.find(".slider__info"),
-    projects = projects_wrapper.find(".portfolio-projects .project"),
-    control_buttons = slider.find(".slider__controls-item"),
-    letter_class = letter_class || letter_class_default,
-    word_class = word_class || word_class_default,
-    animation_time = animation_time || animation_time_default,
-    animation_class = animation_class || "show-l";
+      slider = $(slider_container),
+      previews = slider.find(".portfolio-preview"),
+      projects_wrapper = slider.find(".slider__info"),
+      projects = projects_wrapper.find(".portfolio-projects .project"),
+      control_buttons = slider.find(".slider__controls-item"),
+      letter_class = letter_class || letter_class_default,
+      word_class = word_class || word_class_default,
+      animation_time = animation_time || animation_time_default,
+      animation_class = animation_class || "show-l";
 
   // Show active project title and technologies letters
   projects_wrapper.find(".active ." + letter_class).addClass("show-l");
@@ -64,21 +68,21 @@ var createSlider = function(slider_container, animation_time, animation_class, l
 
     // Dynamically set CLICKED button parameters
     var this_button       = $(this),
-        this_thumbnails   = this_button.next().find(".slider__thumbnail"),
-        this_active_thumb = this_thumbnails.filter(".active"),
-        this_next_index   = this_thumbnails.index(this_active_thumb);
+    this_thumbnails   = this_button.next().find(".slider__thumbnail"),
+    this_active_thumb = this_thumbnails.filter(".active"),
+    this_next_index   = this_thumbnails.index(this_active_thumb);
 
     // Set SIBLING (other) button parameters
     var other_button        = this_button.parent().siblings().find(".slider__controls-item"),
-        other_thumbnails    = other_button.next().find(".slider__thumbnail"),
-        other_active_thumb  = other_thumbnails.filter(".active"),
-        other_next_index    = other_thumbnails.index(other_active_thumb);
+    other_thumbnails    = other_button.next().find(".slider__thumbnail"),
+    other_active_thumb  = other_thumbnails.filter(".active"),
+    other_next_index    = other_thumbnails.index(other_active_thumb);
 
     // Set main preview and project indexes
     var active_preview      = previews.filter(".active"),
-        next_preview_index  = previews.index(active_preview),
-        active_project      = projects.filter(".active"),
-        next_project_index  = projects.index(active_project);
+    next_preview_index  = previews.index(active_preview),
+    active_project      = projects.filter(".active"),
+    next_project_index  = projects.index(active_project);
 
 
     // If next button was clicked, then we need to increment indexes, else - decrement
@@ -109,7 +113,7 @@ var createSlider = function(slider_container, animation_time, animation_class, l
 
     function change_thumbs(){
       var this_next_thumb = this_thumbnails.eq(this_next_index),
-          other_next_thumb = other_thumbnails.eq(other_next_index);
+      other_next_thumb = other_thumbnails.eq(other_next_index);
 
       this_next_thumb.removeClass("move-down").addClass("active move-up");
       this_active_thumb.removeClass("active move-down").addClass("move-up");
@@ -127,12 +131,12 @@ var createSlider = function(slider_container, animation_time, animation_class, l
 
     function change_project(){
       var next_project = projects.eq(next_project_index),
-        letters = next_project.find("." + letter_class);
+      letters = next_project.find("." + letter_class);
 
       active_project
-        .removeClass("active")
-        .find("." + letter_class)
-        .removeClass("show-l");
+      .removeClass("active")
+      .find("." + letter_class)
+      .removeClass("show-l");
 
       next_project.addClass("active");
       letters.addClass("show-l");
@@ -146,7 +150,6 @@ var createSlider = function(slider_container, animation_time, animation_class, l
   });
 
 };
-
 
 module.exports = {
   prepareTitles : prepareTitles,

@@ -127,15 +127,26 @@
 	}
 	.main-content-arrow-block {
 		position: absolute;
-		font-size: rem(20px);
 		left: 50%;
 		bottom: 40px;
+		z-index: 10;
+		cursor: pointer;
+		transition: all .5s ease;
 		transform: translateX(-50%);
-
-		color: #fff;
-		opacity: .7;
 		.fa {
 			width: 20px;
+			font-size: rem(25px);
+		}
+		.header__arrow-link {
+			color: #fff;
+			opacity: .7;
+			transition: all .5s ease;
+		}
+		&:hover {
+			bottom: 30px;
+			.header__arrow-link {
+				opacity: .4;
+			}
 		}
 	}
 	&__svg-corner {

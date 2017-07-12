@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = [
-    './source/js/p_modules/water.js'
+    './source/js/common/water.js'
 ];

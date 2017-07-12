@@ -1,3 +1,5 @@
+module.exports = function () {
+
 var siteModuleBlog = (function () {
     var flag = true;
 
@@ -76,6 +78,8 @@ var siteModuleBlog = (function () {
 })();
 
 siteModuleBlog.init();
+
+};
 
 
 

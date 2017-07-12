@@ -32,7 +32,8 @@ header.header.table-box.js-header.header-s-works
 			svg.header__svg-bg.js-header__text
 				use(xlink:href="#icon-works_header")
 			.main-content-arrow-block
-				i.fa.fa-chevron-down
+				a.header__arrow-link.js-scrollto(href='#next')
+					i.fa.fa-chevron-down
 
 			svg.header__svg-corner.header__svg-corner_left(preserveAspectRatio="none" viewBox="0 0 1000 400")
 				use(xlink:href="#icon-about_bg_left")
@@ -40,6 +41,8 @@ header.header.table-box.js-header.header-s-works
 				use(xlink:href="#icon-about_bg_right")
 			
 section.s-works
+
+	#next
 
 	.main-content__work-block
 		h2.h2 Мои работы
