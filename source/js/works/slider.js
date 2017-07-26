@@ -59,6 +59,11 @@ var createSlider = function(slider_container, animation_time, animation_class, l
       animation_time = animation_time || animation_time_default,
       animation_class = animation_class || "show-l";
 
+      $(".portfolio-preview:first-child").addClass("active");
+      $(".slider__info .portfolio-projects .project:first-child").addClass("active");
+      $(".navigation-box__prev .portfolio-thumbnails .slider__thumbnail:last-child").addClass("active");
+      $(".navigation-box__next .portfolio-thumbnails .slider__thumbnail:first-child").addClass("active");
+
   // Show active project title and technologies letters
   projects_wrapper.find(".active ." + letter_class).addClass("show-l");
 
@@ -67,7 +72,7 @@ var createSlider = function(slider_container, animation_time, animation_class, l
     e.preventDefault();
 
     // Dynamically set CLICKED button parameters
-    var this_button       = $(this),
+    var this_button   = $(this),
     this_thumbnails   = this_button.next().find(".slider__thumbnail"),
     this_active_thumb = this_thumbnails.filter(".active"),
     this_next_index   = this_thumbnails.index(this_active_thumb);

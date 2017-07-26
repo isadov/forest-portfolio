@@ -1,12 +1,11 @@
 //- Fullscreen Menu widget
 mixin main-menu(active)
-	- var pages = {"Мои работы":"./works.html", "Блог":"./blog.html", "Обо мне":"./about.html", "Авторизация":"/"}
 	nav.main-menu
 		ul.main-menu__content
 			- var i = 1
-			each p_url, p_title in pages
+			each link, title in menu
 				li.main-menu__item
-					a(class="preload-link main-menu__link" + ((i++ == active) ? " active":""), href=p_url)=p_title
+					a(class="preload-link main-menu__link" + ((i++ == active) ? " active":""), href= link)= title
 
 //- Parallax
 mixin parallax(type)
@@ -22,39 +21,40 @@ mixin waterBackground
 	.Background
 		canvas.Background-canvas
 
+//- Header
+mixin header(title, text, bgText, mod)
+	
+	header.header.table-box.js-header(class= mod)
+		.header__top-row
+			ul.header-line-social-list
+				each link, item in social
+					li: a(target="_blank" href=link)
+						i(class= item)
 
-//- For Blogs
-mixin blogPost(articles)
-	each article in articles
-		li.articles__item
-			.article__heading=article.heading
-			time.article__date=article.date
-			article.article
-				each par in article.paragraphes
-					p.article__text=par
-
-mixin list(className, items)
-	ul(class=`${className}__list`)
-		each item in items
-			li(class=`${className}__item`)=item
-
-mixin list-img(className, items)
-	ul(class=`${className}__list`)
-		each item, index in items
-			li(class=`${className}__item` + ((index === 0) ? ` ${className}__itemActive` : ''))
-				img(src="/assets/img/"+item+".png" alt=)
-
-mixin list-link(className, items)
-	ul(class=`${className}__list`)
-		each item in items
-			li(class=`${className}__item`)
-				a(class=`${className}__link` href=item.link)=item.name
-
-mixin list-div(className, items)
-	ul(class=`${className}__list`)
-		each item, index in items
-			li(class=`${className}__item`+ ((index === 0) ? ` ${className}__itemActive` : ''))
-				div(class=`${className}__txt`)=item
+		.table-box__row
+			.table-box__vertical-aligned
+				.main-content-author-block.js-header__author
+					.main-content-author-block__img
+						img(src="/assets/img/developer.png", alt="Developer")
+					.main-content-author-block__name
+						p.block__main-title= title
+					.main-content-author-block__descr
+						p= text
+				svg.header__svg-bg.js-header__text
+					use(xlink:href="#{bgText}")
+				.main-content-arrow-block
+					a.header__arrow-link.js-scrollto(href='#next')
+						i.fa.fa-chevron-down
+				svg.header__svg-corner.header__svg-corner_left(preserveAspectRatio="none" viewBox="0 0 1000 400")
+					use(xlink:href="#icon-about_bg_left")
+				svg.header__svg-corner.header__svg-corner_right(preserveAspectRatio="none" viewBox="0 0 1000 400")
+					use(xlink:href="#icon-about_bg_right")
 
 
-				
+
+
+
+
+
+
+

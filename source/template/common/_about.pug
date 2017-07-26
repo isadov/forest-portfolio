@@ -1,7 +1,3 @@
-include ../partials/_variables
-include ../partials/_sprites
-include ../mixins/_mixins
-
 +main-menu(3)
 
 //- .parallax-wrapper
@@ -10,32 +6,7 @@ include ../mixins/_mixins
 a(href="#" id="menu-toggle").toggle-mnu
 	span
 
-header.header.table-box.js-header
-
-	.header__top-row
-		ul.header-line-social-list
-			each link, item in social_list
-				li: a(target="_blank" href=link)
-					i(class= item)
-
-	.table-box__row
-		.table-box__vertical-aligned
-			.main-content-author-block.js-header__author
-				.main-content-author-block__img
-					img(src="/assets/img/developer.png", alt="Developer")
-				.main-content-author-block__name
-					p Садовский Иван
-				.main-content-author-block__descr
-					p Личный сайт веб разработчика
-			svg.header__svg-bg.js-header__text
-				use(xlink:href="#icon-about_header")
-			.main-content-arrow-block
-				a.header__arrow-link.js-scrollto(href='#next')
-					i.fa.fa-chevron-down
-			svg.header__svg-corner.header__svg-corner_left(preserveAspectRatio="none" viewBox="0 0 1000 400")
-				use(xlink:href="#icon-about_bg_left")
-			svg.header__svg-corner.header__svg-corner_right(preserveAspectRatio="none" viewBox="0 0 1000 400")
-				use(xlink:href="#icon-about_bg_right")
++header('Садовский Иван', 'Личный сайт веб разработчика', '#icon-about_header', 'header-s-about')
 
 section.s-about-author
 	#next
@@ -57,38 +28,15 @@ section.s-about-author
 				span Чем я могу быть вам полезен
 			p.s-about-author-content-s__descr Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
 			.s-about-author-content-s__skills
-				.s-about-author-content-s__skills__frontend
-					span Frontend
-					each percent, name in author_frontend_skills
-						.s-about-author-content-s__skills__container
-							.pie
-								= percent
-							.pie-header
-								p= name
-				.s-about-author-content-s__skills__backend
-					span Backend
-					each percent, name in author_backend_skills
-						.s-about-author-content-s__skills__container
-							.pie
-								= percent
-							.pie-header
-								p= name
-				.s-about-author-content-s__skills__workflow
-					span Workflow
-					each percent, name in author_workflow_skills
-						.s-about-author-content-s__skills__container
-							.pie
-								= percent
-							.pie-header
-								p= name
-				.s-about-author-content-s__skills__design-tools
-					span Design Tools
-					each percent, name in author_design_skills
-						.s-about-author-content-s__skills__container
-							.pie
-								= percent
-							.pie-header
-								p= name
+				
+				each skillsCat, sectionName in skills
+					.s-about-author-content-s__skills__container
+						span.section-name= sectionName
+						each value, skill in skillsCat
+							.s-about-author-content-s__skills__container-wrapper
+								.pie= value
+								.pie-header
+									p= skill
 
 section.s-contacts.last-section
 	.s-contacts__map

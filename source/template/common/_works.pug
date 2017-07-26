@@ -1,7 +1,3 @@
-include ../partials/_variables
-include ../partials/_sprites
-include ../mixins/_mixins
-
 +main-menu(1)
 
 //- .parallax-wrapper
@@ -10,36 +6,8 @@ include ../mixins/_mixins
 a(href="#" id="menu-toggle").toggle-mnu
 	span
 
-header.header.table-box.js-header.header-s-works
++header('Садовский Иван', 'Личный сайт веб разработчика', '##icon-works_header', 'header-s-works')
 
-	.header__top-row
-		ul.header-line-social-list
-			each link, item in social_list
-				li: a(target="_blank" href=link)
-					i(class= item)
-
-	.table-box__row
-		.table-box__vertical-aligned
-
-			.main-content-author-block.js-header__author
-				.main-content-author-block__img
-					img(src="/assets/img/developer.png", alt="Developer")
-				.main-content-author-block__name
-					p Садовский Иван
-				.main-content-author-block__descr
-					p Личный сайт веб разработчика
-	
-			svg.header__svg-bg.js-header__text
-				use(xlink:href="#icon-works_header")
-			.main-content-arrow-block
-				a.header__arrow-link.js-scrollto(href='#next')
-					i.fa.fa-chevron-down
-
-			svg.header__svg-corner.header__svg-corner_left(preserveAspectRatio="none" viewBox="0 0 1000 400")
-				use(xlink:href="#icon-about_bg_left")
-			svg.header__svg-corner.header__svg-corner_right(preserveAspectRatio="none" viewBox="0 0 1000 400")
-				use(xlink:href="#icon-about_bg_right")
-			
 section.s-works
 
 	#next
@@ -52,78 +20,41 @@ section.s-works
 	.slider
 		.slider__left
 			.slider__display
-				img.portfolio-preview.active(src="/assets/img/slider/work-1.png", alt="Портфолио-1")
-				img.portfolio-preview(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
-				img.portfolio-preview(src="/assets/img/slider/work-3.png", alt="Портфолио-3")
-				img.portfolio-preview(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
+
+				for work in works
+					img.portfolio-preview(src=work.img alt=work.alt)
+
 			.slider__info
 				.portfolio-projects
-					.project.active
-						.project__inner
-							.title
-								p.title__name Сайт школы онлайн образования
-							.skills
-								p.title__description html, css, javascript
-							.slider__btn
-								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
-					.project
-						.project__inner
-							.title
-								p.title__name Сайт школы онлайн образования (1)
-							.skills
-								p.title__description html, css, javascript
-							.slider__btn
-								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
-					.project
-						.project__inner
-							.title
-								p.title__name Сайт школы онлайн образования (2)
-							.skills
-								p.title__description html, css, javascript
-							.slider__btn
-								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
-					.project
-						.project__inner
-							.title
-								p.title__name Сайт школы онлайн образования (3)
-							.skills
-								p.title__description html, css, javascript
-							.slider__btn
-								<a href="#" class="btn"><i class="fa fa-link"></i>Посмотреть сайт</a>
+					
+					for work in works
+						.project
+							.project__inner
+								.title
+									p.title__name= work.name
+								.skills
+									p.title__description= work.description
+								.slider__btn
+									a.btn(href= work.link)
+										<i class="fa fa-link"></i> Посмотреть сайт
+
 		.slider__right
 			.slider__controls
 
 				.navigation-box.navigation-box__prev
 					button(class="slider__controls-item slider__controls-item_prev")
 					.portfolio-thumbnails
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-3.png", alt="Портфолио-3")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-3.png", alt="Портфолио-3")
-						.slider__thumbnail.active
-							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
-				
+						for work in works
+							.slider__thumbnail
+								img(src=work.img, alt=work.alt)
+
 				.navigation-box.navigation-box__next
 					button(class="slider__controls-item slider__controls-item_next")
 					.portfolio-thumbnails
-						.slider__thumbnail.active
-							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-1.png", alt="Портфолио-1")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-4.png", alt="Портфолио-4")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-2.png", alt="Портфолио-2")
-						.slider__thumbnail
-							img(src="/assets/img/slider/work-1.png", alt="Портфолио-1")
+						for work in works
+							.slider__thumbnail
+								img(src=work.img, alt=work.alt)
+
 
 section.s-about.js-parallax.js-blur-bg#js-cover-target
 
@@ -140,34 +71,18 @@ section.s-about.js-parallax.js-blur-bg#js-cover-target
 		.works__reviews
 			.reviews
 				.reviews__list
-
-					.reviews__item
-						.review
-							.review__img-wrapper
-								img(src="/assets/img/dima.jpg", alt="Дмитрий").review__img
-							.review__text
-								| Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+					
+					each data, id in reviews
+						.reviews__item
+							.review
+								.review__img-wrapper
+									img(src= data.img, alt= data.name).review__img
+							.review__text= data.text
 								svg.review__text-quote
 									use(xlink:href="#icon-quote")
 							.review__author
-								span.review__author-name
-									| Ковальчук Дмитрий
-								span.review__author-place
-									| - основатель Loftschool
-
-					.reviews__item
-						.review
-							.review__img-wrapper
-								img(src="/assets/img/zar.jpg", alt="Зар").review__img
-							.review__text
-								| Этот код выдержит любые испытания. Только пожалуйста не загружайте сайт на слишком старых браузерах
-								svg.review__text-quote
-									use(xlink:href="#icon-quote")
-							.review__author
-								span.review__author-name
-									| Зар Захаров
-								span.review__author-place
-									| - главный преподаватель
+								span.review__author-name= data.name
+								span.review__author-place= data.place
 
 		.works__feedback
 			svg(version='1.1', xmlns='http://www.w3.org/2000/svg', style='display: none')
